@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07040d">
+  <title>Змейка — Древний замок</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%90%8D%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hud">
+      <div class="stat">
+        <span class="stat__label">Счёт</span>
+        <span class="stat__value" id="score">0</span>
+      </div>
+      <h1 class="title">ЗМЕЙКА<span class="title__sub">ДРЕВНИЙ ЗАМОК</span></h1>
+      <div class="stat stat--right">
+        <span class="stat__label">Рекорд</span>
+        <span class="stat__value" id="best">0</span>
+      </div>
+    </header>
+
+    <div class="board">
+      <canvas id="game" width="384" height="384" aria-label="Игровое поле змейки"></canvas>
+      <div class="overlay is-visible" id="overlay">
+        <h2 class="overlay__title" id="overlay-title">Змейка</h2>
+        <p class="overlay__text" id="overlay-text">Древний замок не прощает ошибок: собирай яблоки, обходи стены и не врезайся в свой хвост.</p>
+        <button class="btn" id="play-btn" type="button">Играть</button>
+      </div>
+    </div>
+
+    <div class="legend">
+      <p class="hint">
+        <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> или <kbd>WASD</kbd> — движение
+        · <kbd>Space</kbd> — старт/пауза · <kbd>M</kbd> — звук · <kbd>R</kbd> — заново
+      </p>
+
+      <button class="sound" id="sound-btn" type="button" data-muted="false" aria-label="Выключить звук" aria-pressed="true" title="Выключить звук (M)">
+        <svg viewBox="0 0 24 24" width="16" height="16" shape-rendering="crispEdges" aria-hidden="true">
+          <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/>
+          <path class="sound__waves" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path class="sound__slash" d="M4.5 4.5l15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="dpad" aria-label="Экранное управление">
+      <button type="button" class="dpad__btn dpad__up" data-dir="up" aria-label="Вверх">▲</button>
+      <button type="button" class="dpad__btn dpad__left" data-dir="left" aria-label="Влево">◀</button>
+      <button type="button" class="dpad__btn dpad__pause" id="pause-btn" aria-label="Пауза">❚❚</button>
+      <button type="button" class="dpad__btn dpad__right" data-dir="right" aria-label="Вправо">▶</button>
+      <button type="button" class="dpad__btn dpad__down" data-dir="down" aria-label="Вниз">▼</button>
+    </div>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
